@@ -1,4 +1,4 @@
-name: Project-1 CI Pipeline
+name: Portfolio CI Pipeline
 
 on:
   push:
@@ -20,9 +20,11 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
-        working-directory: ./app
+        run: |
+          cd app
+          npm install
 
       - name: Build Portfolio
-        run: npm run build
-        working-directory: ./app
+        run: |
+          cd app
+          npm run build
