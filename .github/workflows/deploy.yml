@@ -9,9 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: app
+
     steps:
 
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Setup Node
@@ -20,11 +24,7 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: |
-          cd app
-          npm install
+        run: npm install
 
-      - name: Build Application
-        run: |
-          cd app
-          npm run build
+      - name: Build Portfolio
+        run: npm run build
